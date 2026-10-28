@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGACY SCENTS | Your Scent. Your Legacy.</title>
+<meta name="description" content="Legacy Scents by AA Legacy — an independent Malaysian fragrance house. Your Scent. Your Legacy. A 10ml portable body perfume, introducing soon.">
+<meta name="theme-color" content="#10100F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%2310100F'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='6.5'%20fill='none'%20stroke='%23D6B779'%20stroke-width='1.4'/%3E%3C/svg%3E">
+
+<!-- ================= CSS ================= -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap');
+
+:root{
+  --obsidian:#10100F;
+  --obsidian-deep:#0B0B0A;
+  --charcoal:#191916;
+  --gold:#D6B779;
+  --gold-deep:#9E8451;
+  --ivory:#F5F0E6;
+  --grey:#A9A397;
+  --line:rgba(214,183,121,.22);
+  --line-soft:rgba(245,240,230,.09);
+  --font-serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --font-sans:"Jost","Helvetica Neue",Arial,sans-serif;
+  --font-jawi:"Noto Naskh Arabic","Amiri","Scheherazade New","Traditional Arabic",serif;
+  --container:1180px;
+  --gutter:clamp(1.15rem,5vw,3.5rem);
+  --section-y:clamp(4rem,10vw,8rem);
+  --radius:3px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--obsidian);color:var(--ivory);font-family:var(--font-sans);font-weight:300;font-size:clamp(.95rem,.9rem + .25vw,1.02rem);line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+blockquote{margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:1rem;top:-120px;z-index:300;background:var(--gold);color:#171410;padding:.8rem 1.3rem;border-radius:2px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:top .25s var(--ease)}
+.skip-link:focus{top:1rem}
+
+.jawi{font-family:var(--font-jawi);direction:rtl;unicode-bidi:isolate;letter-spacing:normal;word-spacing:normal;font-feature-settings:"liga" 1,"calt" 1;line-height:1.7}
+.eyebrow{font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:400}
+.h2{font-family:var(--font-serif);font-weight:300;font-size:clamp(1.9rem,5.6vw,3.2rem);line-height:1.08;letter-spacing:-.01em}
+.section{position:relative;padding-block:var(--section-y);scroll-margin-top:78px}
+.section-head{max-width:54ch}
+.section-sub{color:var(--grey);margin-top:1.1rem;font-size:.92rem;max-width:58ch}
+
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0) * 90ms)}
+.js .reveal.is-visible{opacity:1;transform:none}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:.95rem 1.9rem;font-family:var(--font-sans);font-size:.64rem;font-weight:400;letter-spacing:.26em;text-transform:uppercase;text-decoration:none;text-align:center;border:1px solid transparent;border-radius:2px;cursor:pointer;transition:background .4s var(--ease),color .4s var(--ease),border-color .4s var(--ease),transform .3s var(--ease)}
+.btn--gold{background:linear-gradient(180deg,#E3C995,#C9A868);color:#171410;border-color:rgba(214,183,121,.9);font-weight:500}
+.btn--gold:hover{background:linear-gradient(180deg,#F0DBAE,#D6B779);transform:translateY(-1px)}
+.btn--gold:active{transform:translateY(0)}
+.btn--ghost{background:transparent;color:var(--ivory);border-color:rgba(245,240,230,.24)}
+.btn--ghost:hover{border-color:var(--gold);color:var(--gold);background:rgba(214,183,121,.06)}
+.btn--sm{min-height:44px;padding:.75rem 1.2rem;font-size:.58rem;letter-spacing:.22em}
+.btn:disabled{cursor:default;opacity:.55}
+.pending-note{margin-top:.9rem;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--grey)}
+
+.announce{background:var(--obsidian-deep);border-bottom:1px solid var(--line-soft);text-align:center;padding:.72rem var(--gutter)}
+.announce p{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-deep);font-weight:400}
+
+.site-header{position:sticky;top:0;z-index:100;background:rgba(16,16,15,.9);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--line-soft);transition:background .4s var(--ease),border-color .4s var(--ease)}
+.site-header.is-scrolled{background:rgba(11,11,10,.96);border-bottom-color:var(--line)}
+.header__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:66px}
+.brand{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;color:inherit;padding-block:.4rem}
+.brand__jawi{font-size:1.5rem;line-height:1.35;color:var(--gold);display:block}
+.brand__lockup{display:flex;flex-direction:column;line-height:1}
+.brand__name{font-family:var(--font-serif);font-weight:500;font-size:.82rem;letter-spacing:.19em;text-transform:uppercase}
+.brand__parent{font-size:.46rem;letter-spacing:.32em;color:var(--grey);margin-top:.4rem;text-transform:uppercase}
+
+.nav-toggle{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;background:transparent;border:1px solid var(--line);border-radius:2px;cursor:pointer;transition:border-color .3s var(--ease)}
+.nav-toggle:hover{border-color:var(--gold)}
+.nav-toggle__bars{display:block;width:20px;height:12px;position:relative}
+.nav-toggle__bars span{position:absolute;left:0;width:100%;height:1px;background:var(--gold);transition:transform .35s var(--ease),opacity .25s var(--ease)}
+.nav-toggle__bars span:nth-child(1){top:0}
+.nav-toggle__bars span:nth-child(2){top:6px}
+.nav-toggle__bars span:nth-child(3){top:12px}
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+.site-nav{position:absolute;left:0;right:0;top:100%;background:#0E0E0D;border-bottom:1px solid var(--line);max-height:0;overflow:hidden;opacity:0;visibility:hidden;transition:max-height .45s var(--ease),opacity .3s var(--ease),visibility .3s}
+.site-nav.is-open{max-height:75vh;overflow-y:auto;opacity:1;visibility:visible}
+.site-nav__list{display:flex;flex-direction:column;padding:.4rem var(--gutter) 1.6rem}
+.site-nav__list a{display:block;padding:1rem 0;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;text-decoration:none;color:var(--ivory);border-bottom:1px solid var(--line-soft);transition:color .3s var(--ease),padding-left .3s var(--ease)}
+.site-nav__list a:hover{color:var(--gold);padding-left:.4rem}
+.site-nav__list li:last-child a{border-bottom:0}
+
+.hero{position:relative;overflow:hidden;isolation:isolate;padding-block:clamp(2.75rem,8vw,5.5rem) clamp(3.5rem,9vw,7rem)}
+.hero__glow{position:absolute;inset:0;z-index:-1;background:radial-gradient(75% 60% at 80% 12%,rgba(214,183,121,.16),transparent 68%),radial-gradient(60% 50% at 4% 92%,rgba(158,132,81,.10),transparent 70%),linear-gradient(180deg,#0B0B0A 0%,#10100F 60%,#10100F 100%)}
+.hero__inner{display:grid;gap:clamp(2.5rem,7vw,4rem);align-items:center}
+.hero__title{font-family:var(--font-serif);font-weight:300;font-size:clamp(2.6rem,10.5vw,5.2rem);line-height:1.02;letter-spacing:-.015em;margin-top:.35rem}
+.hero__title-em{font-style:italic;color:var(--gold)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){.hero__title-em{background:linear-gradient(100deg,#EBD8AC 0%,#D6B779 50%,#A98F58 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}}
+.hero__lead{font-family:var(--font-serif);font-size:clamp(1.15rem,3.4vw,1.5rem);font-weight:400;color:var(--ivory);margin-top:1.5rem}
+.hero__sub{color:var(--grey);max-width:46ch;margin-top:.85rem;font-size:.95rem}
+.hero__actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.hero__status{display:inline-flex;align-items:center;gap:.6rem;margin-top:2rem;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.hero__status .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(214,183,121,.12)}
+
+.hero__visual{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem}
+.halo{position:absolute;top:50%;left:50%;width:min(125%,420px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(214,183,121,.20),rgba(214,183,121,.06) 42%,transparent 68%);filter:blur(4px);pointer-events:none}
+.hero__visual .bottle{position:relative;z-index:1}
+.hero__note{position:relative;z-index:1;font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(169,163,151,.78);text-align:center;max-width:24ch}
+
+/* ================= NEW BOTTLE DESIGN (Tall, Slim, Rectangular) ================= */
+.bottle{
+  position:relative;
+  width:60px; 
+  height:180px;
+  margin:0 auto;
+  filter:drop-shadow(0 15px 25px rgba(0,0,0,.4));
+}
+.bottle[hidden]{display:none}
+.bottle--hero{width:80px;height:240px}
+.bottle--sm{width:55px;height:165px}
+
+/* Cap */
+.bottle__cap{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:32px;
+  height:65px; /* ~1/3 of total height */
+  background:#111111; /* Matte black */
+  border-radius:3px 3px 1px 1px;
+  box-shadow:inset 0 2px 5px rgba(255,255,255,0.15), inset -2px 0 5px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.5);
+  z-index:3;
+}
+.bottle--hero .bottle__cap{width:42px;height:85px;border-radius:4px 4px 1px 1px}
+.bottle--sm .bottle__cap{width:30px;height:60px}
+
+/* Neck */
+.bottle__neck{
+  position:absolute;
+  top:63px;
+  left:50%;
+  transform:translateX(-50%);
+  width:20px;
+  height:10px;
+  background:rgba(255,255,255,0.1);
+  border-left:1px solid rgba(255,255,255,0.3);
+  border-right:1px solid rgba(255,255,255,0.3);
+  z-index:2;
+}
+.bottle--hero .bottle__neck{top:83px;width:26px;height:12px}
+.bottle--sm .bottle__neck{top:58px;width:18px}
+
+/* Body */
+.bottle__body{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:120px;
+  border-radius:5px; /* Slightly rounded corners */
+  background:var(--glass-gradient);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.4),
+    inset -10px 0 15px rgba(0,0,0,0.15),
+    inset 10px 0 15px rgba(255,255,255,0.2);
+  overflow:hidden;
+  z-index:1;
+}
+.bottle--hero .bottle__body{height:160px;border-radius:6px}
+.bottle--sm .bottle__body{height:110px;border-radius:5px}
+
+/* Reflections */
+.bottle__shine{
+  position:absolute;
+  top:0;left:0;bottom:0;
+  width:15px;
+  background:linear-gradient(90deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.05) 60%, transparent 100%);
+  border-radius:5px 0 0 5px;
+}
+.bottle--hero .bottle__shine{width:20px;border-radius:6px 0 0 6px}
+
+/* Label */
+.bottle__label{
+  position:absolute;
+  left:50%;top:55%;
+  transform:translate(-50%,-50%);
+  width:85%;
+  padding:6px 2px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2px;
+  text-align:center;
+  background:rgba(255,255,255,0.15);
+  border-top:1px solid rgba(255,255,255,0.5);
+  border-bottom:1px solid rgba(255,255,255,0.5);
+  -webkit-backdrop-filter:blur(2px);
+  backdrop-filter:blur(2px);
+}
+.bottle__label-jawi{
+  font-family:var(--font-jawi);direction:rtl;unicode-bidi:isolate;letter-spacing:normal;
+  font-size:.75rem;line-height:1.4;color:#111;
+}
+.bottle__label-name{
+  font-family:var(--font-serif);font-size:.42rem;letter-spacing:.18em;color:#111;font-weight:600;
+}
+.bottle__label-size{
+  font-size:.28rem;letter-spacing:.24em;color:rgba(0,0,0,0.6);
+}
+.bottle--hero .bottle__label-jawi{font-size:1rem}
+.bottle--hero .bottle__label-name{font-size:.55rem}
+.bottle--hero .bottle__label-size{font-size:.35rem}
+
+/* Gradient Colors */
+.bottle--blue{--glass-gradient:linear-gradient(180deg, #0A192F 0%, #2C5F8A 45%, #A2C2E6 75%, rgba(245,240,230,0.3) 100%)}
+.bottle--red{--glass-gradient:linear-gradient(180deg, #4A0B0B 0%, #A82626 45%, #E86A4A 75%, rgba(245,240,230,0.3) 100%)}
+.bottle--amber{--glass-gradient:linear-gradient(180deg, #3B2314 0%, #A86F38 45%, #E8C396 75%, rgba(245,240,230,0.3) 100%)}
+.bottle--purple{--glass-gradient:linear-gradient(180deg, #2E0A4A 0%, #7E3AA8 45%, #C9A2E6 75%, rgba(245,240,230,0.3) 100%)}
+.bottle--teal{--glass-gradient:linear-gradient(180deg, #0A3B36 0%, #2A8A7D 45%, #A2E6DF 75%, rgba(245,240,230,0.3) 100%)}
+.bottle--yellow{--glass-gradient:linear-gradient(180deg, #2C3B0A 0%, #7D8A2A 45%, #DFE6A2 75%, rgba(245,240,230,0.3) 100%)}
+
+
+/* ================= GALLERY SECTION ================= */
+.gallery-cream {
+  background: #F5F0E6; /* Clean, light cream */
+  padding: clamp(3rem,8vw,5rem) 0;
+  text-align: center;
+  overflow: hidden;
+}
+.gallery-cream .eyebrow { color: #9E8451; }
+.gallery-cream .h2 { color: #10100F; }
+.gallery-cream .section-sub { color: #555; margin-inline: auto; }
+.bottle-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-top: 3rem;
+  overflow-x: auto;
+  padding-bottom: 2rem;
+  /* Soft studio lighting base */
+  box-shadow: inset 0 -30px 40px -20px rgba(0,0,0,0.05);
+}
+.bottle-row::-webkit-scrollbar { height: 6px; }
+.bottle-row::-webkit-scrollbar-thumb { background: #D6B779; border-radius: 10px; }
+.bottle-row::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); }
+
+
+/* ================= OTHER SECTIONS ================= */
+.signature{position:relative;padding-block:clamp(3.5rem,9vw,6.5rem);text-align:center;border-block:1px solid var(--line-soft);background:radial-gradient(60% 80% at 50% 50%,rgba(214,183,121,.09),transparent 70%),linear-gradient(180deg,var(--obsidian),#0C0C0B);scroll-margin-top:78px}
+.signature__mark{display:flex;flex-direction:column;align-items:center;gap:clamp(1rem,2.5vw,1.5rem)}
+.signature__jawi{font-family:var(--font-jawi);direction:rtl;unicode-bidi:isolate;letter-spacing:normal;font-size:clamp(3rem,14vw,6.5rem);line-height:1.5;color:var(--gold);text-shadow:0 0 46px rgba(214,183,121,.22)}
+.signature__rule{position:relative;display:block;width:clamp(90px,26vw,180px);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.signature__rule::after{content:"";position:absolute;left:50%;top:50%;width:5px;height:5px;transform:translate(-50%,-50%) rotate(45deg);background:var(--gold)}
+.signature__latin{font-family:var(--font-serif);font-size:clamp(.78rem,2.6vw,1rem);letter-spacing:.45em;text-indent:.45em;color:var(--ivory)}
+.signature__copy{margin-top:1.75rem;color:var(--grey);font-family:var(--font-serif);font-style:italic;font-size:clamp(1rem,2.8vw,1.25rem);max-width:36ch;margin-inline:auto}
+
+.story__inner{display:grid;gap:2rem}
+.story__body p{color:var(--grey);font-size:1rem;line-height:1.85}
+.story__body p + p{margin-top:1.25rem}
+.story__body p:first-child{color:var(--ivory);font-size:1.05rem}
+
+.product-grid{display:grid;gap:1.25rem;margin-top:clamp(2rem,5vw,3rem)}
+.product{position:relative;display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(245,240,230,.08);border-radius:var(--radius);background:linear-gradient(180deg,rgba(25,25,22,.85),rgba(14,14,13,.85));transition:border-color .5s var(--ease),transform .5s var(--ease)}
+.product__visual{position:relative;display:grid;place-items:center;padding:2.75rem 1rem 2.25rem;border-bottom:1px solid rgba(245,240,230,.06);background:radial-gradient(70% 60% at 50% 18%,rgba(214,183,121,.10),transparent 70%),linear-gradient(180deg,rgba(255,255,255,.03),transparent)}
+.product__status{position:absolute;top:.9rem;right:.9rem;font-size:.48rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(214,183,121,.35);border-radius:2px;padding:.35rem .55rem;background:rgba(16,16,15,.65)}
+.product__image{width:100%;max-width:230px;height:auto;object-fit:contain;border-radius:2px}
+.product__body{display:flex;flex-direction:column;gap:.7rem;padding:1.5rem 1.35rem 1.75rem;flex:1}
+.product__name{font-family:var(--font-serif);font-weight:400;font-size:1.35rem;letter-spacing:.22em;text-transform:uppercase}
+.product__desc{color:var(--grey);font-size:.85rem;line-height:1.7;flex:1}
+.product__meta{display:flex;flex-direction:column;gap:.4rem;padding-top:.9rem;border-top:1px solid var(--line-soft)}
+.product__meta-row{display:flex;justify-content:space-between;gap:1rem;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase}
+.product__meta-row dt{color:rgba(169,163,151,.95)}
+.product__meta-row dd{color:var(--ivory)}
+.product__body .btn{width:100%;margin-top:.35rem}
+.collection__note{margin-top:1.75rem;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(169,163,151,.85);text-align:center}
+
+.values__grid{display:grid;margin-top:clamp(2rem,5vw,2.75rem);border-top:1px solid var(--line-soft)}
+.value{padding:2rem 0;border-bottom:1px solid var(--line-soft)}
+.value__num{display:block;font-family:var(--font-serif);font-size:.95rem;letter-spacing:.2em;color:var(--gold);margin-bottom:1rem}
+.value__title{font-family:var(--font-serif);font-weight:400;font-size:1.32rem;letter-spacing:.04em;margin-bottom:.45rem}
+.value__text{color:var(--grey);font-size:.9rem;max-width:32ch}
+
+.quote{padding-block:clamp(4rem,11vw,8rem);text-align:center;border-block:1px solid var(--line-soft);background:radial-gradient(60% 70% at 50% 50%,rgba(214,183,121,.08),transparent 70%)}
+.quote__inner{display:flex;flex-direction:column;align-items:center;gap:clamp(1.25rem,3vw,2rem)}
+.quote__rule{display:block;width:1px;height:clamp(28px,6vw,52px);background:linear-gradient(180deg,transparent,var(--gold))}
+.quote__rule:last-child{background:linear-gradient(0deg,transparent,var(--gold))}
+.quote__text{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:clamp(1.5rem,5.2vw,3rem);line-height:1.28;letter-spacing:-.005em;max-width:22ch;color:var(--ivory)}
+
+.social__inner{max-width:620px;margin-inline:auto;text-align:center}
+.social__text{color:var(--grey);margin-top:1rem}
+.social .btn{margin-top:2rem}
+
+.contact__inner{display:grid;gap:2.5rem}
+.contact__text{color:var(--grey);margin-top:1rem;max-width:42ch}
+.contact__list{display:grid;gap:1.25rem;padding-top:1.75rem;border-top:1px solid var(--line-soft)}
+.contact__list li{display:grid;gap:.3rem}
+.contact__label{font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep)}
+.contact__value{font-family:var(--font-serif);font-size:1.15rem;color:var(--ivory);text-decoration:none;width:fit-content;border-bottom:1px solid transparent;transition:color .3s var(--ease),border-color .3s var(--ease)}
+.contact__value[href]:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.contact__value:not([href]){color:var(--grey);cursor:default}
+
+.site-footer{padding-block:clamp(3rem,7vw,4.5rem) 2.25rem;border-top:1px solid var(--line);background:var(--obsidian-deep)}
+.footer__inner{display:grid;gap:2.5rem}
+.footer__brand{display:flex;flex-direction:column;gap:.4rem}
+.footer__jawi{font-size:1.9rem;line-height:1.45;color:var(--gold)}
+.footer__name{font-family:var(--font-serif);font-size:.92rem;letter-spacing:.3em;text-transform:uppercase}
+.footer__parent{font-size:.46rem;letter-spacing:.32em;text-transform:uppercase;color:var(--grey)}
+.footer__nav{display:flex;flex-wrap:wrap;gap:.75rem 1.75rem}
+.footer__nav a{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;color:var(--grey);transition:color .3s var(--ease)}
+.footer__nav a:hover{color:var(--gold)}
+.footer__meta{display:grid;gap:.5rem}
+.footer__phrase{font-family:var(--font-serif);font-style:italic;font-size:1.05rem;color:var(--ivory)}
+.footer__copy{font-size:.52rem;letter-spacing:.22em;color:rgba(169,163,151,.85)}
+
+.to-top{position:fixed;right:clamp(.9rem,3vw,1.75rem);bottom:clamp(.9rem,3vw,1.75rem);z-index:90;width:46px;height:46px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);background:rgba(16,16,15,.92);color:var(--gold);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:opacity .4s var(--ease),transform .4s var(--ease),visibility .4s,border-color .3s var(--ease)}
+.to-top.is-visible{opacity:1;visibility:visible;transform:none}
+.to-top:hover{border-color:var(--gold)}
+.to-top svg{width:16px;height:16px}
+
+@media (min-width:600px){
+  .brand__name{font-size:.9rem;letter-spacing:.22em}
+  .brand__jawi{font-size:1.7rem}
+  .brand__parent{font-size:.5rem}
+}
+@media (min-width:720px){
+  .product-grid{grid-template-columns:repeat(3,1fr);gap:1rem}
+}
+@media (min-width:820px){
+  .values__grid{grid-template-columns:repeat(3,1fr);gap:0 clamp(2rem,5vw,4rem)}
+  .value{padding:2.25rem 0 0;border-bottom:0}
+  .contact__inner{grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+  .footer__inner{grid-template-columns:auto 1fr auto;align-items:start;gap:clamp(2rem,6vw,4rem)}
+  .footer__nav{justify-content:center}
+  .footer__meta{text-align:right}
+}
+@media (min-width:900px){
+  .header__inner{min-height:74px}
+  .nav-toggle{display:none}
+  .site-nav{position:static;max-height:none;overflow:visible;opacity:1;visibility:visible;background:transparent;border:0}
+  .site-nav__list{flex-direction:row;gap:clamp(1.5rem,3vw,2.6rem);padding:0}
+  .site-nav__list a{position:relative;padding:.4rem 0;border-bottom:0;font-size:.64rem;letter-spacing:.24em}
+  .site-nav__list a:hover{padding-left:0}
+  .site-nav__list a::after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+  .site-nav__list a:hover::after,.site-nav__list a:focus-visible::after{transform:scaleX(1)}
+  .hero__inner{grid-template-columns:1.05fr .95fr}
+  .story__inner{grid-template-columns:.85fr 1.15fr;gap:clamp(2.5rem,7vw,5rem)}
+}
+@media (min-width:1100px){
+  .hero__inner{gap:clamp(3rem,5vw,5rem)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  .js .reveal{opacity:1 !important;transform:none !important}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="announce">
+  <p>A New Signature Is Taking Shape</p>
+</div>
+
+<header class="site-header" id="site-header">
+  <div class="container header__inner">
+    <a class="brand" href="#home" aria-label="Legacy Scents — back to top">
+      <span class="brand__jawi jawi" lang="ms" dir="rtl" data-cfg="jawi" aria-hidden="true">لݢاسي</span>
+      <span class="brand__lockup">
+        <span class="brand__name" data-cfg="brand-name">LEGACY SCENTS</span>
+        <span class="brand__parent" data-cfg="brand-parent">BY AA LEGACY</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="home" aria-labelledby="hero-title">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__copy reveal">
+        <p class="eyebrow">The Art of Personal Fragrance</p>
+        <h1 class="hero__title" id="hero-title">Your Scent.<br><span class="hero__title-em">Your Legacy.</span></h1>
+        <p class="hero__lead">An everyday fragrance. A lasting impression.</p>
+        <p class="hero__sub">Discover a fragrance identity created for the moments that become your story.</p>
+        <div class="hero__actions">
+          <a class="btn btn--gold" href="#collection">Explore the Collection</a>
+          <a class="btn btn--ghost" href="#story">Our Story</a>
+        </div>
+        <p class="hero__status">
+          <span class="dot" aria-hidden="true"></span>
+          <span data-cfg="launch-status">Introducing Soon</span>
+        </p>
+      </div>
+
+      <div class="hero__visual reveal" style="--i:2">
+        <div class="halo" aria-hidden="true"></div>
+        <!-- Hero Bottle (Amber) -->
+        <div class="bottle bottle--hero bottle--amber" role="img" aria-label="Illustration of an amber gradient Legacy Scents perfume bottle with a matte black cap.">
+          <div class="bottle__cap" aria-hidden="true"></div>
+          <div class="bottle__neck" aria-hidden="true"></div>
+          <div class="bottle__body" aria-hidden="true">
+            <div class="bottle__shine"></div>
+            <div class="bottle__label">
+              <span class="bottle__label-jawi jawi" lang="ms" dir="rtl" data-cfg="jawi">لݢاسي</span>
+              <span class="bottle__label-name">LEGACY SCENTS</span>
+              <span class="bottle__label-size">10 ML</span>
+            </div>
+          </div>
+        </div>
+        <p class="hero__note">Concept illustration — not final product packaging</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NEW: 6 BOTTLES GALLERY ================= -->
+  <section class="gallery-cream">
+    <div class="container">
+      <p class="eyebrow reveal">The Spectrum</p>
+      <h2 class="h2 reveal">Six Directions.</h2>
+      <p class="section-sub reveal">A study of colour and form. The final collection will feature our signature 10ml rectangular silhouette.</p>
+      
+      <div class="bottle-row reveal">
+        <!-- 1. Blue -->
+        <div class="bottle bottle--sm bottle--blue">
+          <div class="bottle__cap"></div>
+          <div class="bottle__neck"></div>
+          <div class="bottle__body">
+            <div class="bottle__shine"></div>
+            <div class="bottle__label">
+              <span class="bottle__label-jawi jawi" lang="ms" dir="rtl">لݢاسي</span>
+            </div>
+          </div>
+        </div>
+        <!-- 2. Red -->
+        <div class="bottle bottle--sm bottle--red">
+          <div class="bottle__cap"></div>
+          <div class="bottle__neck"></div>
+          <div class="bottle__body">
+            <div class="bottle__shine"></div>
+            <div class="bottle__label">
+              <span class="bottle__label-jawi jawi" lang="ms" dir="rtl">لݢاسي</span>
+            </div>
+          </div>
+        </div>
+        <!-- 3. Amber -->
+        <div class="bottle bottle--sm bottle--amber">
+          <div class="bottle__cap"></div>
+          <div class="bottle__neck"></div>
+          <div class="bottle__body">
+            <div class="bottle__shine"></div>
+            <div class="bottle__label">
+              <span class="bottle__label-jawi jawi" lang="ms" dir="rtl">لݢاسي</span>
+            </div>
+          </div>
+        </div>
+        <!-- 4. Purple -->
+        <div class="bottle bottle--sm bottle--purple">
+          <div class="bottle__cap"></div>
+          <div class="bottle__neck"></div>
+          <div class="bottle__body">
+            <div class="bottle__shine"></div>
+            <div class="bottle__label">
+              <span class="bottle__label-jawi jawi" lang="ms" dir="rtl">لݢاسي</span>
+            </div>
+          </div>
+        </div>
+        <!-- 5. Teal -->
+        <div class="bottle bottle--sm bottle--teal">
+          <div class="bottle__cap"></div>
+          <div class="bottle__neck"></div>
+          <div class="bottle__body">
+            <div class="bottle__shine"></div>
+            <div class="bottle__label">
+              <span class="bottle__label-jawi jawi" lang="ms" dir="rtl">لݢاسي</span>
+            </div>
+          </div>
+        </div>
+        <!-- 6. Yellow -->
+        <div class="bottle bottle--sm bottle--yellow">
+          <div class="bottle__cap"></div>
+          <div class="bottle__neck"></div>
+          <div class="bottle__body">
+            <div class="bottle__shine"></div>
+            <div class="bottle__label">
+              <span class="bottle__label-jawi jawi" lang="ms" dir="rtl">لݢاسي</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========================================================= -->
+
+  <section class="signature" aria-labelledby="signature-title">
+    <div class="container signature__inner">
+      <h2 class="sr-only" id="signature-title">The Legacy Scents signature</h2>
+      <div class="signature__mark reveal">
+        <span class="signature__jawi jawi" lang="ms" dir="rtl" data-cfg="jawi">لݢاسي</span>
+        <span class="signature__rule" aria-hidden="true"></span>
+        <span class="signature__latin">LEGACY SCENTS</span>
+      </div>
+      <p class="signature__copy reveal" style="--i:1">Every fragrance carries a story. Every story leaves a legacy.</p>
+    </div>
+  </section>
+
+  <section class="story section" id="story" aria-labelledby="story-title">
+    <div class="container story__inner">
+      <header class="reveal">
+        <p class="eyebrow">Our Story</p>
+        <h2 class="h2" id="story-title">More Than a Fragrance.</h2>
+      </header>
+      <div class="story__body reveal" style="--i:1">
+        <p>Legacy Scents was created around a simple idea: fragrance is more than something you wear. It is part of how you express yourself, how a moment is remembered, and how you leave an impression.</p>
+        <p>Designed with an appreciation for understated elegance, Legacy Scents brings fragrance into the rhythm of everyday life. The first release is planned as a 10ml portable body perfume — made to travel with you, from morning to evening.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="collection section" id="collection" aria-labelledby="collection-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">The Collection</p>
+        <h2 class="h2" id="collection-title">A Signature in the Making.</h2>
+        <p class="section-sub">Three initial directions are being explored. Names, compositions and final details will be confirmed at launch — everything shown here is an early concept.</p>
+      </header>
+
+      <div class="product-grid">
+        <article class="product reveal" data-product="0" style="--i:0">
+          <div class="product__visual">
+            <div class="bottle bottle--sm bottle--blue" role="img" aria-label="Concept bottle in blue gradient glass.">
+              <div class="bottle__cap" aria-hidden="true"></div>
+              <div class="bottle__neck" aria-hidden="true"></div>
+              <div class="bottle__body" aria-hidden="true">
+                <div class="bottle__shine"></div>
+                <div class="bottle__label">
+                  <span class="bottle__label-jawi jawi" lang="ms" dir="rtl">لݢاسي</span>
+                  <span class="bottle__label-name">NOIR</span>
+                  <span class="bottle__label-size">10 ML</span>
+                </div>
+              </div>
+            </div>
+            <span class="product__status" data-field="status">Coming Soon</span>
+          </div>
+          <div class="product__body">
+            <h3 class="product__name" data-field="name">Noir</h3>
+            <p class="product__desc" data-field="desc">A working concept for a deeper, more intimate direction. Final composition to be confirmed.</p>
+            <dl class="product__meta">
+              <div class="product__meta-row"><dt>Size</dt><dd data-field="size">10ml</dd></div>
+              <div class="product__meta-row"><dt>Price</dt><dd data-field="price">Price to be announced</dd></div>
+            </dl>
+            <button class="btn btn--ghost btn--sm" type="button" data-field="action" disabled>Coming Soon</button>
+          </div>
+        </article>
+
+        <article class="product reveal" data-product="1" style="--i:1">
+          <div class="product__visual">
+            <div class="bottle bottle--sm bottle--red" role="img" aria-label="Concept bottle in red gradient glass.">
+              <div class="bottle__cap" aria-hidden="true"></div>
+              <div class="bottle__neck" aria-hidden="true"></div>
+              <div class="bottle__body" aria-hidden="true">
+                <div class="bottle__shine"></div>
+                <div class="bottle__label">
+                  <span class="bottle__label-jawi jawi" lang="ms" dir="rtl">لݢاسي</span>
+                  <span class="bottle__label-name">EMBER</span>
+                  <span class="bottle__label-size">10 ML</span>
+                </div>
+              </div>
+            </div>
+            <span class="product__status" data-field="status">Coming Soon</span>
+          </div>
+          <div class="product__body">
+            <h3 class="product__name" data-field="name">Ember</h3>
+            <p class="product__desc" data-field="desc">A working concept for a warm, vibrant direction. Final composition to be confirmed.</p>
+            <dl class="product__meta">
+              <div class="product__meta-row"><dt>Size</dt><dd data-field="size">10ml</dd></div>
+              <div class="product__meta-row"><dt>Price</dt><dd data-field="price">Price to be announced</dd></div>
+            </dl>
+            <button class="btn btn--ghost btn--sm" type="button" data-field="action" disabled>Coming Soon</button>
+          </div>
+        </article>
+
+        <article class="product reveal" data-product="2" style="--i:2">
+          <div class="product__visual">
+            <div class="bottle bottle--sm bottle--amber" role="img" aria-label="Concept bottle in amber gradient glass.">
+              <div class="bottle__cap" aria-hidden="true"></div>
+              <div class="bottle__neck" aria-hidden="true"></div>
+              <div class="bottle__body" aria-hidden="true">
+                <div class="bottle__shine"></div>
+                <div class="bottle__label">
+                  <span class="bottle__label-jawi jawi" lang="ms" dir="rtl">لݢاسي</span>
+                  <span class="bottle__label-name">AMBER</span>
+                  <span class="bottle__label-size">10 ML</span>
+                </div>
+              </div>
+            </div>
+            <span class="product__status" data-field="status">Coming Soon</span>
+          </div>
+          <div class="product__body">
+            <h3 class="product__name" data-field="name">Amber</h3>
+            <p class="product__desc" data-field="desc">A working concept for a warm, golden direction. Final composition to be confirmed.</p>
+            <dl class="product__meta">
+              <div class="product__meta-row"><dt>Size</dt><dd data-field="size">10ml</dd></div>
+              <div class="product__meta-row"><dt>Price</dt><dd data-field="price">Price to be announced</dd></div>
+            </dl>
+            <button class="btn btn--ghost btn--sm" type="button" data-field="action" disabled>Coming Soon</button>
+          </div>
+        </article>
+      </div>
+      <p class="collection__note reveal">All names and visuals shown are early concepts, not final products.</p>
+    </div>
+  </section>
+
+  <section class="values section" aria-labelledby="values-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Why Legacy Scents</p>
+        <h2 class="h2" id="values-title">Three Quiet Principles.</h2>
+      </header>
+      <ul class="values__grid">
+        <li class="value reveal" style="--i:0">
+          <span class="value__num" aria-hidden="true">01</span>
+          <h3 class="value__title">Personal Expression</h3>
+          <p class="value__text">A fragrance that becomes part of your identity.</p>
+        </li>
+        <li class="value reveal" style="--i:1">
+          <span class="value__num" aria-hidden="true">02</span>
+          <h3 class="value__title">Everyday Elegance</h3>
+          <p class="value__text">A refined touch for ordinary moments.</p>
+        </li>
+        <li class="value reveal" style="--i:2">
+          <span class="value__num" aria-hidden="true">03</span>
+          <h3 class="value__title">The Signature</h3>
+          <p class="value__text">A scent experience that feels personal.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="quote" aria-label="Brand statement">
+    <div class="container quote__inner reveal">
+      <span class="quote__rule" aria-hidden="true"></span>
+      <blockquote class="quote__text">Some things are remembered long after the moment has passed.</blockquote>
+      <span class="quote__rule" aria-hidden="true"></span>
+    </div>
+  </section>
+
+  <section class="social section" aria-labelledby="social-title">
+    <div class="container social__inner reveal">
+      <p class="eyebrow">Follow the Journey</p>
+      <h2 class="h2" id="social-title">Be Part of the Beginning.</h2>
+      <p class="social__text">Follow the journey of Legacy Scents, from the first idea to the first bottle.</p>
+      <a class="btn btn--gold" href="#contact" data-cfg="tiktok" data-ready-text="Follow on TikTok">Follow Our Journey</a>
+      <p class="pending-note" data-cfg="tiktok-note">Official TikTok link coming soon.</p>
+    </div>
+  </section>
+
+  <section class="contact section" id="contact" aria-labelledby="contact-title">
+    <div class="container contact__inner">
+      <div class="reveal">
+        <p class="eyebrow">Contact</p>
+        <h2 class="h2" id="contact-title">Let&rsquo;s Talk.</h2>
+        <p class="contact__text">For enquiries, collaborations or launch updates, reach us through the channels below.</p>
+      </div>
+      <ul class="contact__list reveal" style="--i:1">
+        <li>
+          <span class="contact__label">Email</span>
+          <a class="contact__value" data-cfg="email" data-ready-text="">Email address coming soon</a>
+        </li>
+        <li>
+          <span class="contact__label">TikTok</span>
+          <a class="contact__value" data-cfg="tiktok" data-ready-text="Open TikTok profile">TikTok profile coming soon</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="footer__jawi jawi" lang="ms" dir="rtl" data-cfg="jawi" aria-hidden="true">لݢاسي</span>
+      <span class="footer__name" data-cfg="brand-name">LEGACY SCENTS</span>
+      <span class="footer__parent" data-cfg="brand-parent">BY AA LEGACY</span>
+    </div>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="#home">Home</a>
+      <a href="#story">Our Story</a>
+      <a href="#collection">Collection</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="footer__meta">
+      <p class="footer__phrase">Your Scent. Your Legacy.</p>
+      <p class="footer__copy">&copy; 2026 AA LEGACY. ALL RIGHTS RESERVED.</p>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+    <path d="M12 19V5M12 5l-6 6M12 5l6 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+(function () {
+  'use strict';
+
+  var CONFIG = {
+    brand: {
+      name:   'LEGACY SCENTS',
+      parent: 'AA LEGACY',
+      jawi:   'لݢاسي',
+      tagline:'Your Scent. Your Legacy.'
+    },
+    launchStatus: 'INTRODUCING SOON',
+    links: {
+      tiktok: '',
+      email: ''
+    },
+    products: [
+      {
+        name:        'NOIR',
+        description: 'A working concept for a deeper, more intimate direction. Final composition to be confirmed.',
+        size:        '10ml',
+        price:       'Price to be announced',
+        status:      'COMING SOON',
+        link:        '',
+        image:       ''
+      },
+      {
+        name:        'EMBER',
+        description: 'A working concept for a warm, vibrant direction. Final composition to be confirmed.',
+        size:        '10ml',
+        price:       'Price to be announced',
+        status:      'COMING SOON',
+        link:        '',
+        image:       ''
+      },
+      {
+        name:        'AMBER',
+        description: 'A working concept for a warm, golden direction. Final composition to be confirmed.',
+        size:        '10ml',
+        price:       'Price to be announced',
+        status:      'COMING SOON',
+        link:        '',
+        image:       ''
+      }
+    ]
+  };
+
+  document.documentElement.classList.add('js');
+  var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setText(selector, value) {
+    if (!value) return;
+    var nodes = document.querySelectorAll(selector);
+    for (var i = 0; i < nodes.length; i++) { nodes[i].textContent = value; }
+  }
+
+  setText('[data-cfg="jawi"]', CONFIG.brand.jawi);
+  setText('[data-cfg="brand-name"]', CONFIG.brand.name);
+  setText('[data-cfg="brand-parent"]', CONFIG.brand.parent);
+  setText('[data-cfg="launch-status"]', CONFIG.launchStatus);
+
+  var tiktokUrl = (CONFIG.links.tiktok || '').trim();
+  var tiktokNodes = document.querySelectorAll('[data-cfg="tiktok"]');
+  for (var t = 0; t < tiktokNodes.length; t++) {
+    (function (el) {
+      if (tiktokUrl) {
+        el.setAttribute('href', tiktokUrl);
+        el.setAttribute('target', '_blank');
+        el.setAttribute('rel', 'noopener noreferrer');
+        var readyLabel = el.getAttribute('data-ready-text');
+        if (readyLabel) el.textContent = readyLabel;
+      } else if (el.classList.contains('contact__value')) {
+        el.removeAttribute('href');
+      }
+    })(tiktokNodes[t]);
+  }
+
+  var tiktokNote = document.querySelector('[data-cfg="tiktok-note"]');
+  if (tiktokNote && tiktokUrl) { tiktokNote.style.display = 'none'; }
+
+  var email = (CONFIG.links.email || '').trim();
+  var emailNodes = document.querySelectorAll('[data-cfg="email"]');
+  for (var e = 0; e < emailNodes.length; e++) {
+    (function (el) {
+      if (email) {
+        el.setAttribute('href', 'mailto:' + email);
+        el.textContent = email;
+      } else {
+        el.removeAttribute('href');
+      }
+    })(emailNodes[e]);
+  }
+
+  function applyProduct(index, product) {
+    var card = document.querySelector('[data-product="' + index + '"]');
+    if (!card) return;
+    function field(name) { return card.querySelector('[data-field="' + name + '"]'); }
+
+    if (product.name)        { var n = field('name');   if (n) n.textContent = product.name; }
+    if (product.description) { var d = field('desc');   if (d) d.textContent = product.description; }
+    if (product.size)        { var s = field('size');   if (s) s.textContent = product.size; }
+    if (product.price)       { var p = field('price');  if (p) p.textContent = product.price; }
+    if (product.status)      { var st = field('status');if (st) st.textContent = product.status; }
+
+    var action = field('action');
+    if (action) {
+      if (product.link) {
+        var link = document.createElement('a');
+        link.className = 'btn btn--ghost btn--sm';
+        link.setAttribute('data-field', 'action');
+        link.setAttribute('href', product.link);
+        link.setAttribute('rel', 'noopener');
+        link.textContent = 'View Product';
+        action.parentNode.replaceChild(link, action);
+      } else if (product.status) {
+        action.textContent = product.status;
+      }
+    }
+
+    if (product.image) {
+      var visual = card.querySelector('.product__visual');
+      var bottle = visual ? visual.querySelector('.bottle') : null;
+      if (visual) {
+        var img = document.createElement('img');
+        img.className = 'product__image';
+        img.src = product.image;
+        img.alt = (product.name || 'Legacy Scents') + ' bottle';
+        img.loading = 'lazy';
+        img.addEventListener('error', function () {
+          img.parentNode && img.parentNode.removeChild(img);
+          if (bottle) bottle.hidden = false;
+        });
+        if (bottle) bottle.hidden = true;
+        visual.insertBefore(img, visual.firstChild);
+      }
+    }
+  }
+
+  if (CONFIG.products && CONFIG.products.length) {
+    for (var i = 0; i < CONFIG.products.length; i++) { applyProduct(i, CONFIG.products[i]); }
+  }
+
+  var navToggle = document.querySelector('.nav-toggle');
+  var siteNav = document.getElementById('site-nav');
+
+  function closeNav(returnFocus) {
+    if (!siteNav || !navToggle) return;
+    siteNav.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Open menu');
+    if (returnFocus) navToggle.focus();
+  }
+
+  if (navToggle && siteNav) {
+    navToggle.addEventListener('click', function () {
+      var isOpen = siteNav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+
+    var navLinks = siteNav.querySelectorAll('a');
+    for (var k = 0; k < navLinks.length; k++) {
+      navLinks[k].addEventListener('click', function () { closeNav(false); });
+    }
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && siteNav.classList.contains('is-open')) { closeNav(true); }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 900) closeNav(false);
+    });
+  }
+
+  var header = document.getElementById('site-header');
+  var toTop = document.querySelector('.to-top');
+
+  function onScroll() {
+    if (header) { header.classList.toggle('is-scrolled', window.scrollY > 12); }
+    if (toTop) { toTop.classList.toggle('is-visible', window.scrollY > 620); }
+  }
+
+  if (toTop) {
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var revealItems = document.querySelectorAll('.reveal');
+  function showAll() {
+    for (var r = 0; r < revealItems.length; r++) { revealItems[r].classList.add('is-visible'); }
+  }
+
+  if (!('IntersectionObserver' in window) || prefersReducedMotion) {
+    showAll();
+  } else {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    for (var r2 = 0; r2 < revealItems.length; r2++) { observer.observe(revealItems[r2]); }
+    window.setTimeout(showAll, 3000);
+  }
+})();
+</script>
+</body>
+</html>
